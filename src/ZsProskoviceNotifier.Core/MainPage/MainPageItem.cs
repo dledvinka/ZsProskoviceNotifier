@@ -2,7 +2,7 @@
 
 namespace ZsProskoviceNotifier.Core.MainPage
 {
-    public class MainPageItem
+    public class MainPageItem : IHasHash
     {
         public string Title { get; set; }
         public DateTime? Updated { get; set; }

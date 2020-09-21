@@ -2,7 +2,7 @@
 
 namespace ZsProskoviceNotifier.Core.WeeklyPlan
 {
-    public class WeeklyPlanItem
+    public class WeeklyPlanItem : IHasHash
     {
         public string Title { get; set; }
         public string Url { get; set; }
