@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
 using ZsProskoviceNotifier.Core;
+using ZsProskoviceNotifier.Core.MainPage;
+using ZsProskoviceNotifier.Core.WeeklyPlan;
 
 namespace ZsProskoviceNotifier.Console
 {
@@ -25,9 +27,13 @@ namespace ZsProskoviceNotifier.Console
 
             using (var httpClient = new HttpClient())
             {
-                var query = new GetMainPageNewsQuery();
-                var handler = new GetMainPageNewsQueryHandler(httpClient, logger);
-                var result = await handler.Execute(query);
+                //var query = new MainPageNewsQuery();
+                //var handler = new MainPageNewsQueryHandler(httpClient, logger);
+                //var result = await handler.Execute(query);
+
+                var weeklyPlanQuery = new WeeklyPlanQuery();
+                var weeklyPlanHandler = new WeeklyPlanQueryHandler(WeeklyPlanUrls.Grade02Url, httpClient, logger);
+                var weeklyPlanResult = await weeklyPlanHandler.Execute(weeklyPlanQuery);
             }
         }
     }
